@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGENDA VIP</title>
+    <link rel="stylesheet" href="estilos.css">
+	<link rel="icon" type="image/png" href="icono.png">
+</head>
+<body>
+<!-- Coloca esto inmediatamente debajo de la etiqueta <body> -->
+<div class="diamante-destello" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+<div class="diamante-destello" style="top: 20%; left: 85%; animation-delay: 0.5s; width:30px; height:30px;"></div>
+<div class="diamante-destello" style="top: 75%; left: 15%; animation-delay: 1s;"></div>
+<div class="diamante-destello" style="top: 80%; left: 75%; animation-delay: 1.5s; width:25px; height:25px;"></div>
+<div class="diamante-destello" style="top: 45%; left: 5%; animation-delay: 2s;"></div>
+<div class="diamante-destello" style="top: 10%; left: 50%; animation-delay: 0.8s;"></div>
+
+    <div class="contenedor">
+        <!-- Pantalla de bloqueo inicial -->
+        <div id="pantalla-login">
+            <div class="login-box">
+                <h2>NOTAS</h2><BR>
+                <p class="subtitulo">Introduce la clave de acceso.</p>
+                <input type="password" id="clave-input" placeholder="Contraseña...">
+                <button id="btn-acceder" class="btn-bloque">Acceder</button>
+                <p id="error-msg" class="error-texto">Contraseña incorrecta</p>
+            </div>
+        </div>
+
+        <!-- Aplicación principal oculta -->
+        <div id="app-principal" class="oculto">
+            <div class="header">
+                <h2>Notas</h2>
+                <div class="controles-top">
+                   <select id="selector-tema">
+    <option value="light">Tema Claro</option>
+    <option value="dark">Tema Oscuro</option>
+    <option value="warm">Tema Pastel Cálido</option>
+    <option value="cyber">Cyberpunk Matrix</option>
+    <option value="gold-diamond">Oro & Diamante VIP</option> <!-- NUEVA OPCIÓN -->
+</select>
+
+                    <button id="btn-backup" class="btn-secundario">⬇️ Respaldar</button>
+    <input type="file" id="input-importar" accept=".json" style="display: none;">
+    <button id="btn-importar" class="btn-secundario">📂 Copia</button>
+                    <button id="btn-salir" class="btn-borrar">Salir</button>
+                </div>
+            </div>
+
+            <!-- Formulario de notas y tareas -->
+            <div class="editor-nota">
+                <input type="hidden" id="nota-id-edicion" value="">
+                <input type="text" id="nota-titulo" placeholder="Título de la nota o lista...">
+                <textarea id="nota-cuerpo" rows="4" placeholder="Escribe tus notas. Si es una lista de tareas, pon cada tarea en un renglón nuevo..."></textarea>
+                
+                <div class="editor-opciones">
+                    <div class="grupo-campo">
+                        <label for="nota-fecha-alerta">Alerta (Opcional):</label>
+                        <input type="date" id="nota-fecha-alerta">
+                    </div>
+                    <div class="grupo-campo">
+                        <label for="nota-color">Color:</label>
+                        <select id="nota-color">
+                            <option value="default">Estándar</option>
+                            <option value="amarillo">Amarillo</option>
+                            <option value="verde">Verde</option>
+                            <option value="rojo">Rojo</option>
+                            <option value="morado">Morado</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="editor-footer">
+                    <button id="btn-cancelar-edicion" class="btn-secundario oculto">Cancelar Edición</button>
+                    <button id="btn-guardar">Guardar Nota</button>
+                </div>
+            </div>
+
+            <!-- Contenedor dinámico de notas -->
+            <div id="grid-notas" class="grid-notas"></div>
+        </div>
+    </div>
+
+    <!-- Sonido nativo de alerta mediante API de Audio del navegador (Beep) -->
+    <script src="app.js"></script>
+</body>
+</html>
