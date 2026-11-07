@@ -201,17 +201,31 @@ button:hover, .btn-bloque:hover {
 }
 
 /* --- APP COMPONENTES INTERNOS --- */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--borde);
-}
-.controles-top { display: flex; gap: 10px; align-items: center; }
-.controles-top select { width: auto; margin: 0; }
+   .header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 20px;
+    }
+	
+.controles-top {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        gap: 8px;
+    }
 
+    /* 3. Hace que el selector de temas y los botones tengan un tamaño cómodo para tocar con el dedo */
+    .controles-top select, 
+    .controles-top button {
+        flex: 1 1 auto;      /* Se estiran proporcionalmente para llenar el espacio libre */
+        min-width: 85px;     /* Evita que se encojan de más y se vuelvan ilegibles */
+        justify-content: center;
+        text-align: center;
+        padding: 6px 10px;   /* Un tamaño ideal para pantallas táctiles */
+    }
+	
 .editor-nota {
     margin-bottom: 30px;
     background: rgba(0,0,0,0.2);
